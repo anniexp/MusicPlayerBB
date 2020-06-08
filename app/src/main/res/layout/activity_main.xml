@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="80dp"
-        android:clipChildren="true" />
+        android:clipChildren="true"
+        android:scrollbarThumbVertical="@android:color/secondary_text_dark" />
 
     <LinearLayout
         android:id="@+id/bottom"
@@ -24,14 +25,17 @@
         android:padding="1dp">
 
         <TextView
-            android:id="@+id/audio_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="25sp"
+            android:layout_marginStart="75dp"
             android:layout_marginTop="5dp"
             android:ellipsize="end"
-            android:textAlignment="center"
+            android:maxLines="1"
             android:textColor="@color/colorAccent"
-            android:textSize="14sp"/>
+            android:textSize="16sp" />
+
+
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -31,7 +31,9 @@ public class MainActivity
         RecyclerView recyclerView;
         MediaPlayer mediaPlayer;
         double current_pos, total_duration;
-        TextView current, total,audio_name;
+        TextView current, total;
+        TextView audio_name;
+        TextView getAudio_name;
         ImageView prev, next, pause;
         SeekBar seekBar;
         int audio_index = 0;
@@ -53,7 +55,7 @@ public class MainActivity
 
             current = (TextView) findViewById(R.id.current);
             total = (TextView) findViewById(R.id.total);
-            audio_name = (TextView) findViewById(R.id.audio_name);
+           // audio_name = (TextView) findViewById(R.id.audio_name);
             prev = (ImageView) findViewById(R.id.prev);
             next = (ImageView) findViewById(R.id.next);
             pause = (ImageView) findViewById(R.id.pause);
@@ -64,7 +66,7 @@ public class MainActivity
 
             getAudioFiles();
 
-            //seekbar change listner
+            //seekbar change listener
             seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -105,7 +107,7 @@ public class MainActivity
             }
         }
 
-        //play audio file
+        //play music file
         public void playAudio(int pos) {
             try  {
                 mediaPlayer.reset();
@@ -122,7 +124,7 @@ public class MainActivity
             setAudioProgress();
         }
 
-        //set audio progress
+        //set music file progress
         public void setAudioProgress() {
             //get the audio duration
             current_pos = mediaPlayer.getCurrentPosition();
@@ -182,12 +184,13 @@ public class MainActivity
             });
         }
 
-        //pause audio
+        //start/pause buttons
         public void setPause() {
             pause.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (mediaPlayer.isPlaying()) {
+                        //pausing
                         mediaPlayer.pause();
                         pause.setImageResource(R.drawable.ic_play);
                     } else {
@@ -199,9 +202,9 @@ public class MainActivity
         }
 
         //time conversion
-        public String timerConversion(long value) {
+        public String timerConversion(long time) {
             String audioTime;
-            int dur = (int) value;
+            int dur = (int) time;
             int hrs = (dur / 3600000);
             int mns = (dur / 60000) % 60000;
             int scs = dur % 60000 / 1000;
@@ -216,7 +219,10 @@ public class MainActivity
 
         //fetch the audio files from storage
         public void getAudioFiles() {
+//  provides applications access to the content mode
             ContentResolver contentResolver = getContentResolver();
+
+//Getting audio file path or URI from mediastore
             Uri uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
 
             Cursor cursor = contentResolver.query(uri, null, null, null, null);
@@ -250,7 +256,7 @@ public class MainActivity
             });
         }
 
-        //runtime storage permission
+        //checks storage permission
         public boolean checkPermission() {
             int READ_EXTERNAL_PERMISSION = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
             if((READ_EXTERNAL_PERMISSION != PackageManager.PERMISSION_GRANTED)) {
@@ -275,7 +281,7 @@ public class MainActivity
             }
         }
 
-        //release mediaplayer
+        //release media player
         @Override
         protected void onDestroy() {
             super.onDestroy();
