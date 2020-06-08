@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -38,6 +39,7 @@ public class MainActivity
         SeekBar seekBar;
         int audio_index = 0;
         public static final int PERMISSION_READ = 0;
+        Button button;
 
         @Override
         protected void onCreate (Bundle savedInstanceState) {
@@ -84,7 +86,7 @@ public class MainActivity
                     mediaPlayer.seekTo((int) current_pos);
                 }
             });
-
+        //when song ends, play next one
             mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mp) {
@@ -98,13 +100,14 @@ public class MainActivity
 
                 }
             });
-
+//when refreshing page,
             if (!audioArrayList.isEmpty()) {
                 playAudio(audio_index);
                 prevAudio();
                 nextAudio();
                 setPause();
             }
+
         }
 
         //play music file
@@ -152,6 +155,7 @@ public class MainActivity
             handler.postDelayed(runnable, 1000);
         }
 
+
         //play previous audio
         public void prevAudio() {
             prev.setOnClickListener(new View.OnClickListener() {
@@ -174,8 +178,8 @@ public class MainActivity
                 @Override
                 public void onClick(View v) {
                     if (audio_index < (audioArrayList.size()-1)) {
-                        audio_index++;
-                        playAudio(audio_index);
+                       // audio_index++;
+                        playAudio(audio_index++);
                     } else {
                         audio_index = 0;
                         playAudio(audio_index);
@@ -252,6 +256,9 @@ public class MainActivity
                 @Override
                 public void onItemClick(int pos, View v) {
                     playAudio(pos);
+                    //added later
+                    prevAudio();
+                    nextAudio();
                 }
             });
         }
@@ -289,4 +296,5 @@ public class MainActivity
                 mediaPlayer.release();
             }
         }
+
 }
