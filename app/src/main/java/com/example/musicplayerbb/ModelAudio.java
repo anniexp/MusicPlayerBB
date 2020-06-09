@@ -3,6 +3,7 @@ package com.example.musicplayerbb;
 
 import android.net.Uri;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class ModelAudio {
 
@@ -11,6 +12,7 @@ public class ModelAudio {
     String audioArtist;
     Uri audioUri;
     Button details;
+    ImageView songAlbumArt;
 
 
     public String getaudioTitle() {
@@ -46,4 +48,7 @@ public class ModelAudio {
     }
 
     public void setDetails(Button details){this.details = details;}
+    public  void setSongAlbumArt(ImageView songAlbumArt){this.songAlbumArt = songAlbumArt;}
+
+
 }

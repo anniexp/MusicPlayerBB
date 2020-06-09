@@ -120,6 +120,7 @@ ImageView songAlbumArt;
                 prevAudio();
                 nextAudio();
                 setPause();
+
                // setDetails(getAudio_name);
             }
 
@@ -307,11 +308,17 @@ details = (Button) findViewById(R.id.details);
 
             }*/
 
+    public  void playMainBtnClick(View view)
+    {
+        openSongActivity();
+    }
 
 
     //button to open the main activity uses this method
     public  void openSongActivity() {
+        mediaPlayer.reset();
         Intent intent = new Intent(this, SongActivity.class);
+
         startActivity(intent);
     }
 
@@ -344,16 +351,19 @@ details = (Button) findViewById(R.id.details);
             //looping through all rows and adding to list
             if (cursor != null && cursor.moveToFirst()) {
                 do {
-
+                  //  ImageView songAlbumArt  = cursor.get(cursor.getColumnIndex(MediaStore.Audio.AlbumColumns.ALBUM_ART));
                     String title = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TITLE));
                     String artist = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST));
                     String duration = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DURATION));
                     String url = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATA));
+                    String songAlbumArtId = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM_ID));
+
                     ModelAudio modelAudio = new ModelAudio();
                     modelAudio.setaudioTitle(title);
                     modelAudio.setaudioArtist(artist);
                     modelAudio.setaudioUri(Uri.parse(url));
                     modelAudio.setaudioDuration(duration);
+                    modelAudio.setSongAlbumArt(songAlbumArt);
                     audioArrayList.add(modelAudio);
 
                 } while (cursor.moveToNext());

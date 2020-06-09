@@ -43,6 +43,7 @@ public class SongActivity extends AppCompatActivity {
         mainBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 openMainActivity();
             }
 
@@ -157,20 +158,18 @@ public class SongActivity extends AppCompatActivity {
 
 
 
-    public String createTimeLabel(long time) {
-        String audioTime;
-        int dur = (int) time;
-        int hrs = (dur / 3600000);
-        int mns = (dur / 60000) % 60000;
-        int scs = dur % 60000 / 1000;
+    public String createTimeLabel(int time) {
+        String timeLabel = "";
+        int min = time / 1000 / 60;
+        int sec = time / 1000 % 60;
 
-        if (hrs > 0) {
-            audioTime = String.format("%02d:%02d:%02d", hrs, mns, scs);
-        } else {
-            audioTime = String.format("%02d:%02d", mns, scs);
-        }
-        return audioTime;
+        timeLabel = min + ":";
+        if (sec < 10) timeLabel += "0";
+        timeLabel += sec;
+
+        return timeLabel;
     }
+
     //play/pause button logic
     public void playBtnClick(View view) {
 
@@ -209,9 +208,12 @@ public class SongActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
     //button to open the main activity uses this method
     public  void openMainActivity() {
-                Intent intent = new Intent(this, MainActivity.class);
+
+
+        Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
             }
 }

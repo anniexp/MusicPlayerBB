@@ -47,6 +47,7 @@
 
         <Button
             android:id="@+id/details"
+            android:onClick="playMainBtnClick"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_alignEnd="@android:id/widget_frame"
