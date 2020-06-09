@@ -46,7 +46,7 @@
             android:textSize="14sp" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/details"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_alignEnd="@android:id/widget_frame"

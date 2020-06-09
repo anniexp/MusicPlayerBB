@@ -8,7 +8,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.ContentResolver;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.media.MediaPlayer;
@@ -25,6 +28,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import static android.os.Environment.getExternalStorageDirectory;
+
 public class MainActivity
    extends AppCompatActivity {
 
@@ -40,7 +45,8 @@ public class MainActivity
         int audio_index = 0;
         public static final int PERMISSION_READ = 0;
         Button button;
-
+        Button details;
+ImageView songAlbumArt;
         @Override
         protected void onCreate (Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -48,7 +54,15 @@ public class MainActivity
             if (checkPermission()) {
                 setAudio();
             }
-        }
+            details = (Button) findViewById(R.id.details);
+            details.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+
+                    openSongActivity();
+                }});}
+
 
         public void setAudio() {
             recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
@@ -65,9 +79,9 @@ public class MainActivity
 
             audioArrayList = new ArrayList<>();
             mediaPlayer = new MediaPlayer();
-
+            details = findViewById(R.id.details);
             getAudioFiles();
-
+            // setDetails(current);
             //seekbar change listener
             seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                 @Override
@@ -106,6 +120,7 @@ public class MainActivity
                 prevAudio();
                 nextAudio();
                 setPause();
+               // setDetails(getAudio_name);
             }
 
         }
@@ -162,11 +177,14 @@ public class MainActivity
                 @Override
                 public void onClick(View v) {
                     if (audio_index > 0) {
+
+                        playAudio(audio_index);
                         audio_index--;
-                        playAudio(audio_index);
                     } else {
+                        //play last song
+
+                        playAudio(audioArrayList.size() - 1);
                         audio_index = audioArrayList.size() - 1;
-                        playAudio(audio_index);
                     }
                 }
             });
@@ -179,8 +197,10 @@ public class MainActivity
                 public void onClick(View v) {
                     if (audio_index < (audioArrayList.size()-1)) {
                        // audio_index++;
-                        playAudio(audio_index++);
+                        playAudio(audio_index+1);
+                        audio_index++;
                     } else {
+                        //play first song
                         audio_index = 0;
                         playAudio(audio_index);
                     }
@@ -204,6 +224,96 @@ public class MainActivity
                 }
             });
         }
+
+       /* public void setDetails(View view){
+           current_pos = mediaPlayer.getCurrentPosition();
+            MediaPlayer.TrackInfo[] info = mediaPlayer.getTrackInfo();
+           Uri uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+           final ContentResolver contentResolver = getContentResolver();
+           // final Cursor cursor = contentResolver.acquireContentProviderClient(mediaPlayer.);
+
+            details.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                  /*  Uri uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+
+
+                    String title = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TITLE));
+                    String artist = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST));
+
+                    try  {
+                        mediaPlayer.reset();
+                        //set file path
+                        mediaPlayer.setDataSource(this, audioArrayList.get(pos).getaudioUri());
+                        mediaPlayer.prepare();
+                        mediaPlayer.start();
+                        pause.setImageResource(R.drawable.ic_pause);
+                        audio_name.setText(audioArrayList.get(pos).getaudioTitle());
+                        audio_index=pos;
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    setAudioProgress();
+                }
+            });*/
+
+
+          /*  ContentResolver contentResolver = getContentResolver();
+
+//Getting audio file path or URI from mediastore
+            Uri uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+            current_pos = mediaPlayer.getCurrentPosition();
+           // Uri u = getCurrentFocus();
+            final Cursor cursor = contentResolver.query(uri, null, null, null, null);
+
+           if (cursor != null ) {
+
+                current_pos = mediaPlayer.getCurrentPosition();
+                    String title = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TITLE));
+                    String artist = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST));
+                    String duration = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DURATION));
+                    String url = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATA));
+                    ModelAudio modelAudio = new ModelAudio();
+                    modelAudio.setaudioTitle(title);
+                    modelAudio.setaudioArtist(artist);
+                    modelAudio.setaudioUri(Uri.parse(url));
+                    modelAudio.setaudioDuration(duration);
+
+
+            }
+
+            //AudioAdapter adapter = new AudioAdapter(this, audioArrayList);
+            //recyclerView.setAdapter(adapter);
+details = (Button) findViewById(R.id.details);
+            details.setOnClickListener(new View.OnClickListener() {
+                private ProgressDialog details_dialog;
+             //   Uri u = getCurrentFocus(pos);
+                @Override
+                public void onClick(View v) {
+
+                  /*  String title = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TITLE));
+                    String artist = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST));
+                    String duration = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DURATION));
+                    String url = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATA));
+                    ModelAudio modelAudio = new ModelAudio();
+                    modelAudio.setaudioTitle(title);
+                    modelAudio.setaudioArtist(artist);
+                    modelAudio.setaudioUri(Uri.parse(url));
+                    modelAudio.setaudioDuration(duration);
+                    openSongActivity();
+                }
+            });
+
+
+            }*/
+
+
+
+    //button to open the main activity uses this method
+    public  void openSongActivity() {
+        Intent intent = new Intent(this, SongActivity.class);
+        startActivity(intent);
+    }
 
         //time conversion
         public String timerConversion(long time) {
@@ -288,6 +398,28 @@ public class MainActivity
             }
         }
 
+    /*
+    public void onItemClick(View view, int position) {
+        // Toast.makeText(this, "You clicked " + adp.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
+       public void  startActivity(new Intent(getApplicationContext(), SongActivity.class).);
+
+
+
+     /*   }    /*
+    private  final Context context;
+    public MyViewHolder(View itemView){
+
+        super(itemView);
+        contex = itemView.getContext();
+    }
+
+    public void onClick(View view)
+    {
+        final Intent intent;
+        intent = new Intent(context, SongActivity.class);
+        context.startActivity(intent);
+
+    }*/
         //release media player
         @Override
         protected void onDestroy() {
