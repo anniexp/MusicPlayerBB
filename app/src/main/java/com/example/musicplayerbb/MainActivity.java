@@ -45,7 +45,6 @@ public class MainActivity
         int audio_index = 0;
         public static final int PERMISSION_READ = 0;
         Button button;
-        Button b1,b2;
         Button details;
 ImageView songAlbumArt;
         @Override
@@ -56,8 +55,7 @@ ImageView songAlbumArt;
                 setAudio();
             }
             details = (Button) findViewById(R.id.details);
-            b1 = (Button) findViewById(R.id.mainregbut);
-            b2 = (Button) findViewById(R.id.mainlogbut);
+
             details.setOnClickListener(new View.OnClickListener() {
 
                 @Override
@@ -66,21 +64,7 @@ ImageView songAlbumArt;
                     openSongActivity();
                 }});
 
-            b1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent i = new Intent(MainActivity.this, RegisterActivity.class);
-                    startActivity(i);
-                }
-            });
 
-            b2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent i = new Intent(MainActivity.this, LoginActivity.class);
-                    startActivity(i);
-                }
-            });
         }
 
 
@@ -336,7 +320,7 @@ details = (Button) findViewById(R.id.details);
 
     //button to open the main activity uses this method
     public  void openSongActivity() {
-        mediaPlayer.reset();
+       // mediaPlayer.reset();
         Intent intent = new Intent(this, SongActivity.class);
 
         startActivity(intent);
@@ -358,18 +342,19 @@ details = (Button) findViewById(R.id.details);
             return audioTime;
         }
 
+
         //fetch the audio files from storage
         public void getAudioFiles() {
 //  provides applications access to the content mode
             ContentResolver contentResolver = getContentResolver();
 
-//Getting audio file path or URI from mediastore
+//Getting audio file path or URI from mediastore/URI for the "primary" external storage volume
             Uri uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
 
             Cursor cursor = contentResolver.query(uri, null, null, null, null);
 
             //looping through all rows and adding to list
-            if (cursor.moveToFirst()) {
+            if (cursor != null && cursor.moveToFirst()) {
                 do {
                   //  ImageView songAlbumArt  = cursor.get(cursor.getColumnIndex(MediaStore.Audio.AlbumColumns.ALBUM_ART));
                     String title = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TITLE));

@@ -45,15 +45,5 @@
             android:textColor="@color/colorAccent"
             android:textSize="14sp" />
 
-        <Button
-            android:id="@+id/details"
-            android:onClick="playMainBtnClick"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignEnd="@android:id/widget_frame"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="350dp"
-            android:background="@color/gray"
-            android:text="Open" />
     </RelativeLayout>
 </RelativeLayout>
