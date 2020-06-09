@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -39,14 +40,30 @@ public class SongActivity extends AppCompatActivity {
 
         //button to go from playlist activity to main activity
         mainBtn = (Button) findViewById(R.id.mainbtn);
-        mainBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(LoginActivity.isAuth = true)
-                openMainActivity();
-            }
+        Intent intent = getIntent();
+        String email = intent.getStringExtra("email");
+        if(email != null) {
+            mainBtn.setOnClickListener(new View.OnClickListener() {
 
-        });
+                @Override
+                public void onClick(View v) {
+                    openMainActivity();
+                }
+
+            });
+        }
+        else{
+            mainBtn.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getApplicationContext(), "Please login!", Toast.LENGTH_SHORT).show();
+                }
+
+            });
+
+
+        }
         regBtn = (Button) findViewById(R.id.mainregbut);
         loginBtn = (Button) findViewById(R.id.mainlogbut);
 

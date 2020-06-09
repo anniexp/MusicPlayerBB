@@ -54,16 +54,16 @@ ImageView songAlbumArt;
             if (checkPermission()) {
                 setAudio();
             }
-            details = (Button) findViewById(R.id.details);
+            //details = (Button) findViewById(R.id.details);
 
-            details.setOnClickListener(new View.OnClickListener() {
+          /*  details.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View v) {
 
                     openSongActivity();
                 }});
-
+*/
 
         }
 
@@ -83,7 +83,7 @@ ImageView songAlbumArt;
 
             audioArrayList = new ArrayList<>();
             mediaPlayer = new MediaPlayer();
-            details = findViewById(R.id.details);
+            //details = findViewById(R.id.details);
             getAudioFiles();
             // setDetails(current);
             //seekbar change listener
