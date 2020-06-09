@@ -86,5 +86,15 @@
         android:background="#cdbccf"
         android:text="Back" />
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="220dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="240dp"
+        android:layout_marginTop="40dp"
+        android:text="LogIn"
+        android:textAlignment="center"
+        android:textSize="40sp" />
+
 
 </RelativeLayout>
