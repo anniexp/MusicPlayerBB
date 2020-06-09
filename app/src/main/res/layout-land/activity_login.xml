@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray"
+    android:background="#cdbccf"
     tools:context=".LoginActivity">
 
 
@@ -15,8 +15,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="99dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginStart="255dp"
+        android:layout_marginTop="139dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textPersonName" />
@@ -27,8 +27,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="98dp"
-        android:layout_marginBottom="205dp"
+        android:layout_marginStart="253dp"
+        android:layout_marginBottom="147dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword" />
@@ -38,14 +38,11 @@
         android:layout_width="151dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="128dp"
-        android:layout_marginEnd="132dp"
-        android:layout_marginBottom="110dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:text="Login"
-        android:textColor="#ECDDDD" />
+        android:layout_marginStart="283dp"
+        android:layout_marginBottom="41dp"
+        android:background="#FFFFFF"
+        android:text="Login" />
 
     <Button
         android:id="@+id/backlogbut"
@@ -53,11 +50,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="312dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:text="Back"
-        android:textColor="#EFE1E1" />
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="571dp"
+        android:text="Back" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -66,8 +61,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="109dp"
-        android:layout_marginTop="9dp">
+        android:layout_marginStart="519dp"
+        android:layout_marginTop="14dp">
 
     </ImageView>
 

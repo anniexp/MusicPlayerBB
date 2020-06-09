@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/gray"
     android:backgroundTint="@color/colorPrimary"
     android:fadeScrollbars="false"
     tools:context=".RegisterActivity">
@@ -12,12 +12,13 @@
     <Button
         android:id="@+id/register"
         style="@style/Widget.AppCompat.Button.Small"
-        android:layout_width="151dp"
+        android:layout_width="175dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
 
-        android:layout_marginBottom="55dp"
+        android:layout_marginBottom="54dp"
+        android:background="#cdbccf"
         android:text="Register" />
 
     <EditText
@@ -27,11 +28,14 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="270dp"
-        android:background="#2B2B2B"
-        android:backgroundTint="#CDBCCF"
+        android:backgroundTint="#E37D7D"
         android:ems="10"
         android:hint="Email"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textAllCaps="false"
+        android:textColor="#FFFEFE"
+        android:textColorHighlight="#F6EFEF"
+        android:textColorHint="#cdbccf" />
 
     <EditText
         android:id="@+id/pass"
@@ -40,11 +44,11 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="200dp"
-        android:background="#EA2C2C"
-        android:backgroundTint="#CDBCCF"
+        android:backgroundTint="#E37D7D"
         android:ems="10"
         android:hint="Password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:textColorHint="#cdbccf" />
 
     <EditText
         android:id="@+id/cpass"
@@ -53,22 +57,21 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="131dp"
-        android:background="#EA2C2C"
-        android:backgroundTint="#CDBCCF"
+        android:backgroundTint="#E37D7D"
         android:ems="10"
         android:hint="ConfirmPassword"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:textColorHint="#cdbccf" />
 
     <Button
         android:id="@+id/logBtn"
-        style="@style/Widget.AppCompat.Button.Small"
         android:layout_width="151dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="21dp"
         android:layout_marginBottom="665dp"
-        android:background="#cdbccf"
+        android:background="#888282"
         android:text="Login" />
 
     <Button
@@ -78,20 +81,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="241dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="564dp"
         android:background="#cdbccf"
         android:text="Back" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="205dp"
-        android:layout_height="99dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="150dp"
-        android:text="Register"
-        android:textAlignment="center"
-        android:textSize="40sp" />
 
 
 </RelativeLayout>
