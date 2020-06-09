@@ -45,6 +45,7 @@ public class MainActivity
         int audio_index = 0;
         public static final int PERMISSION_READ = 0;
         Button button;
+        Button b1,b2;
         Button details;
 ImageView songAlbumArt;
         @Override
@@ -55,13 +56,32 @@ ImageView songAlbumArt;
                 setAudio();
             }
             details = (Button) findViewById(R.id.details);
+            b1 = (Button) findViewById(R.id.mainregbut);
+            b2 = (Button) findViewById(R.id.mainlogbut);
             details.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View v) {
 
                     openSongActivity();
-                }});}
+                }});
+
+            b1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(MainActivity.this, RegisterActivity.class);
+                    startActivity(i);
+                }
+            });
+
+            b2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(MainActivity.this, LoginActivity.class);
+                    startActivity(i);
+                }
+            });
+        }
 
 
         public void setAudio() {
@@ -349,7 +369,7 @@ details = (Button) findViewById(R.id.details);
             Cursor cursor = contentResolver.query(uri, null, null, null, null);
 
             //looping through all rows and adding to list
-            if (cursor != null && cursor.moveToFirst()) {
+            if (cursor.moveToFirst()) {
                 do {
                   //  ImageView songAlbumArt  = cursor.get(cursor.getColumnIndex(MediaStore.Audio.AlbumColumns.ALBUM_ART));
                     String title = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TITLE));
