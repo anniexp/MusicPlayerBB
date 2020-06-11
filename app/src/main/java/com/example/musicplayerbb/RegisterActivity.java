@@ -15,7 +15,7 @@ public class RegisterActivity extends AppCompatActivity {
     DBHelper db;
     EditText email, password, confPassword;
     Button reg, login;
-    //Button backBtn;
+    Button backBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,7 @@ public class RegisterActivity extends AppCompatActivity {
         confPassword = (EditText) findViewById(R.id.cpass);
         reg = (Button) findViewById(R.id.register);
         login = (Button) findViewById(R.id.logBtn);
-        //backBtn = (Button) findViewById(R.id.backregbut);
+        backBtn = (Button) findViewById(R.id.backregbut);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,13 +36,13 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        /*backBtn.setOnClickListener(new View.OnClickListener() {
+        backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(RegisterActivity.this, MainActivity.class);
+                Intent i = new Intent(RegisterActivity.this, SongActivity.class);
                 startActivity(i);
             }
-        });*/
+        });
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

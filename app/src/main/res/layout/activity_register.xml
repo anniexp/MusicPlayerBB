@@ -14,60 +14,70 @@
         style="@style/Widget.AppCompat.Button.Small"
         android:layout_width="151dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentStart="true"
 
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="130dp"
+        android:layout_marginEnd="130dp"
         android:layout_marginBottom="55dp"
-        android:text="Register" />
+        android:background="#cdbccf"
+        android:text="Register"
+        android:textColorLink="#cdbccf" />
 
     <EditText
         android:id="@+id/email"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="45dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="270dp"
-        android:background="#2B2B2B"
-        android:backgroundTint="#CDBCCF"
+        android:layout_above="@+id/pass"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="25dp"
+        android:backgroundTint="#EA2C2C"
         android:ems="10"
         android:hint="Email"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="#cdbccf"
+        android:textColorHint="#cdbccf" />
 
     <EditText
         android:id="@+id/pass"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="45dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="200dp"
-        android:background="#EA2C2C"
-        android:backgroundTint="#CDBCCF"
+        android:layout_above="@+id/cpass"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="#EA2C2C"
         android:ems="10"
         android:hint="Password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:textColor="#cdbccf"
+        android:textColorHint="#cdbccf" />
 
     <EditText
         android:id="@+id/cpass"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="45dp"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="100dp"
         android:layout_marginBottom="131dp"
-        android:background="#EA2C2C"
-        android:backgroundTint="#CDBCCF"
+        android:backgroundTint="#EA2C2C"
         android:ems="10"
         android:hint="ConfirmPassword"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:textColorHint="#cdbccf" />
 
     <Button
         android:id="@+id/logBtn"
         style="@style/Widget.AppCompat.Button.Small"
         android:layout_width="151dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="21dp"
-        android:layout_marginBottom="665dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="18dp"
         android:background="#cdbccf"
         android:text="Login" />
 
@@ -85,13 +95,28 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="205dp"
-        android:layout_height="99dp"
+        android:layout_width="207dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageView4"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="100dp"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginBottom="-163dp"
         android:text="Register"
         android:textAlignment="center"
+        android:textColor="#cdbccf"
         android:textSize="40sp" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="176dp"
+        android:layout_height="205dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="130dp"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="210dp"
+        app:srcCompat="@drawable/signup" />
 
 
 </RelativeLayout>

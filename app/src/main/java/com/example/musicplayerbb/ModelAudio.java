@@ -12,8 +12,8 @@ public class ModelAudio {
     String audioArtist;
     Uri audioUri;
     Button details;
-    ImageView songAlbumArt;
-
+    String songAlbumArt;
+String songId;
 
     public String getaudioTitle() {
         return audioTitle;
@@ -34,7 +34,7 @@ public class ModelAudio {
     public String getaudioArtist() {
         return audioArtist;
     }
-
+public String getSongAlbumArt(){return songAlbumArt;}
     public void setaudioArtist(String audioArtist) {
         this.audioArtist = audioArtist;
     }
@@ -48,7 +48,9 @@ public class ModelAudio {
     }
 
     public void setDetails(Button details){this.details = details;}
-    public  void setSongAlbumArt(ImageView songAlbumArt){this.songAlbumArt = songAlbumArt;}
+    public  void setSongAlbumArt(String songAlbumArt){this.songAlbumArt = songAlbumArt;}
 
+
+    public  void getsongId(String songId){this.songId = songId;}
 
 }

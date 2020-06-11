@@ -12,47 +12,39 @@
         android:id="@+id/logEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="255dp"
-        android:layout_marginTop="139dp"
+        android:layout_above="@+id/logPass"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="16dp"
+        android:layout_toEndOf="@+id/imageView3"
         android:ems="10"
         android:hint="Email"
-        android:inputType="textPersonName" />
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/logPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="253dp"
-        android:layout_marginBottom="147dp"
+        android:layout_above="@+id/button"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="77dp"
+        android:layout_toEndOf="@+id/imageView3"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword" />
 
     <Button
         android:id="@+id/button"
+        style="@style/Widget.AppCompat.Button.Small"
         android:layout_width="151dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="283dp"
         android:layout_marginBottom="41dp"
-        android:background="#FFFFFF"
-        android:text="Login" />
+        android:background="@color/colorPrimary"
 
-    <Button
-        android:id="@+id/backlogbut"
-        android:layout_width="151dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="571dp"
-        android:text="Back" />
+        android:text="Login"
+        android:textColor="#FFFFFF" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -60,9 +52,9 @@
         android:layout_height="379dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="519dp"
-        android:layout_marginTop="14dp">
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/login">
 
     </ImageView>
 
@@ -70,8 +62,11 @@
         android:id="@+id/textView"
         android:layout_width="220dp"
         android:layout_height="70dp"
+        android:layout_above="@+id/logEmail"
+        android:layout_marginStart="30dp"
         android:layout_marginLeft="240dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginBottom="18dp"
+        android:layout_toEndOf="@+id/imageView3"
         android:text="LogIn"
         android:textAlignment="center"
         android:textSize="40sp" />

@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import static com.example.musicplayerbb.SongActivity.auth;
 
 public class LoginActivity extends AppCompatActivity {
     EditText e1,e2;
@@ -28,17 +27,17 @@ public class LoginActivity extends AppCompatActivity {
         e1 = (EditText)findViewById(R.id.logEmail);
         e2 = (EditText)findViewById(R.id.logPass);
         b1 = (Button)findViewById(R.id.button);
-        b2 = (Button)findViewById(R.id.backlogbut);
+       // b2 = (Button)findViewById(R.id.backlogbut);
 
 
 
-        b2.setOnClickListener(new View.OnClickListener() {
+     /*   b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(i);
             }
-        });
+        });*/
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,7 +50,6 @@ public class LoginActivity extends AppCompatActivity {
                     i.putExtra("email",email);
                     startActivity(i);
                     veremail = email;
-                    auth = true;
                 }
                 else
                     Toast.makeText(getApplicationContext(), "Wrong email or password", Toast.LENGTH_SHORT).show();
@@ -63,5 +61,4 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
-    public static boolean isAuth = auth;
 }

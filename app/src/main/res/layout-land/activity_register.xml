@@ -14,20 +14,22 @@
         style="@style/Widget.AppCompat.Button.Small"
         android:layout_width="175dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentEnd="true"
 
-        android:layout_marginBottom="54dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="273dp"
+        android:layout_marginBottom="49dp"
         android:background="#cdbccf"
         android:text="Register" />
 
     <EditText
         android:id="@+id/email"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="45dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="270dp"
+        android:layout_above="@+id/pass"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="255dp"
+        android:layout_marginBottom="9dp"
         android:backgroundTint="#E37D7D"
         android:ems="10"
         android:hint="Email"
@@ -39,11 +41,12 @@
 
     <EditText
         android:id="@+id/pass"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="45dp"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="200dp"
+        android:layout_marginEnd="254dp"
+        android:layout_marginBottom="168dp"
         android:backgroundTint="#E37D7D"
         android:ems="10"
         android:hint="Password"
@@ -52,11 +55,12 @@
 
     <EditText
         android:id="@+id/cpass"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="45dp"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="131dp"
+        android:layout_marginEnd="257dp"
+        android:layout_marginBottom="113dp"
         android:backgroundTint="#E37D7D"
         android:ems="10"
         android:hint="ConfirmPassword"
@@ -67,11 +71,11 @@
         android:id="@+id/logBtn"
         android:layout_width="151dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="21dp"
-        android:layout_marginBottom="665dp"
-        android:background="#888282"
+        android:background="#cdbccf"
         android:text="Login" />
 
     <Button
@@ -90,11 +94,27 @@
         android:id="@+id/textView4"
         android:layout_width="220dp"
         android:layout_height="70dp"
+        android:layout_above="@+id/email"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="255dp"
         android:layout_marginLeft="240dp"
-        android:layout_marginTop="40dp"
-        android:text="LogIn"
+        android:layout_marginBottom="10dp"
+        android:text="Register"
         android:textAlignment="center"
+        android:textColor="#cdbccf"
         android:textSize="40sp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="207dp"
+        android:layout_height="195dp"
+        android:layout_below="@+id/backregbut"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="63dp"
+        android:layout_marginEnd="489dp"
+        android:layout_marginBottom="85dp"
+        app:srcCompat="@drawable/signup" />
 
 
 </RelativeLayout>

@@ -12,14 +12,15 @@
         android:id="@+id/logEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="99dp"
-        android:layout_marginTop="400dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="108dp"
+        android:layout_marginBottom="282dp"
+        android:cursorVisible="true"
         android:ems="10"
         android:hint="Email"
-        android:inputType="textPersonName" />
+        android:inputType="textEmailAddress"
+        android:visibility="visible" />
 
     <EditText
         android:id="@+id/logPass"
@@ -47,27 +48,18 @@
         android:text="Login"
         android:textColor="#ECDDDD" />
 
-    <Button
-        android:id="@+id/backlogbut"
-        android:layout_width="151dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="312dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:text="Back"
-        android:textColor="#EFE1E1" />
-
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="198dp"
-        android:layout_height="379dp"
+        android:layout_width="226dp"
+        android:layout_height="215dp"
+        android:layout_above="@+id/logEmail"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="109dp"
-        android:layout_marginTop="9dp">
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="178dp"
+        android:layout_marginBottom="12dp"
+        android:src="@drawable/login">
 
     </ImageView>
 
@@ -75,10 +67,17 @@
         android:id="@+id/textView3"
         android:layout_width="205dp"
         android:layout_height="99dp"
+        android:layout_above="@+id/logEmail"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="100dp"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="150dp"
+        android:layout_marginEnd="106dp"
+        android:layout_marginBottom="156dp"
+        android:text="LogIn"
         android:textAlignment="center"
-        android:textSize="40sp"
-        android:text="LogIn" />
+        android:textSize="40sp" />
 
 </RelativeLayout>

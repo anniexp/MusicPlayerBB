@@ -31,7 +31,6 @@ public class SongActivity extends AppCompatActivity {
     ArrayList mySongs;
      private Button mainBtn;
     Button regBtn,loginBtn;
-   public static boolean auth = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +50,7 @@ public class SongActivity extends AppCompatActivity {
                 }
 
             });
-        }
+       }
         else{
             mainBtn.setOnClickListener(new View.OnClickListener() {
 
@@ -64,6 +63,7 @@ public class SongActivity extends AppCompatActivity {
 
 
         }
+
         regBtn = (Button) findViewById(R.id.mainregbut);
         loginBtn = (Button) findViewById(R.id.mainlogbut);
 
